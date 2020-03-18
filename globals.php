@@ -5,9 +5,9 @@
 	define("DBPASS"		,	"");
 	define("DBNAME"		,	"abasv2");
 	define("DS"			,	"/"); //directory separator
-	define("WPATH"		,	$_SERVER['DOCUMENT_ROOT']."/abas/");
+	define("WPATH"		,	$_SERVER['DOCUMENT_ROOT']."/git_abas/");
 	define("SITEDIR"	,	$_SERVER['DOCUMENT_ROOT']."/");
-	define("SITEURL"	,	"http://".$_SERVER['SERVER_NAME']."/abas");
+	define("SITEURL"	,	"http://".$_SERVER['SERVER_NAME']."/git_abas");
 	define("LINK"		,	SITEURL."/");
 	define("HTTP_PATH"	,	SITEURL."/index.php/");
 	define("CSRF_ENABLE",	FALSE);

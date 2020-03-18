@@ -116,5 +116,20 @@ class Manager_model extends CI_Model{
 
 	}
 
+	public function getRFP($action = FALSE){
+		//$id = $_SESSION['abas_login']['userid'];
+		$id = 5;
+		if($action == 'approved_by_me') {
+			$sql = "SELECT * FROM ac_request_payment WHERE approved_by = $id ORDER BY id DESC";
+		} elseif ($action == 'verified_by_me') {
+			$sql = "SELECT * FROM ac_request_payment WHERE verified_by = $id ORDER BY id DESC";
+		} else {
+			$sql = "SELECT * FROM ac_request_payment WHERE verified_by = $id or approved_by = $id ORDER BY id DESC";
+		}
+
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
+
 }
 ?>

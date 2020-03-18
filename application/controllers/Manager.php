@@ -1058,5 +1058,63 @@ class Manager extends CI_Controller{
 		$data['to_date'] = max($actual_end_dates);
 		echo json_encode( $data );
 	}
+
+	public function getPaymentTo($type,$id)
+	{
+		if($type == 'Employee')
+		{
+			$var = $this->Abas->getEmployee($id);
+			return $var->full_name;
+		}
+		elseif($type == 'Supplier')
+		{
+			$var = $this->Abas->getSupplier($id);
+			return $var->name;
+		}
+		else
+		{
+			return 'Undefined Payee Type';
+		}
+	}
+
+
+	public function rfp_view($filter = false)
+	{
+		if(isset($_POST['filter'])){
+			redirect(HTTP_PATH.'manager/rfp_view/'.$_POST['filter']);
+		}
+
+		$items = $this->Manager_model->getRFP($filter);
+		foreach ($items as $ctr => $row) {
+			$company = $this->Abas->getCompany($row->company_id);
+			$prepared_by = $this->Abas->getUser($row->created_by);
+			$created_on = strtotime($row->created_on);
+			$verified_by = $this->Abas->getUser($row->verified_by);
+			$verified_on = strtotime($row->verified_on);
+			$approved_by = $this->Abas->getUser($row->approved_by);
+			$approved_on = strtotime($row->approved_on);
+
+			$rfp[$ctr] = [
+				'transaction_code' => $row->id,
+				'control_number'   => $row->control_number,
+				'company'		   => $company->name,
+				'payee_type'	   => $row->payee_type,
+				'payment_to'	   => $this->getPaymentTo($row->payee_type,$row->payment_to),
+				'purpose'		   => $row->purpose,
+				'prepared_by'	   => $prepared_by['full_name'],
+				'created_on'	   => date("j F Y h:i A",$created_on),
+				'verified_by'	   => $verified_by['full_name'],
+				'verified_on'	   => date("j F Y h:i A",$verified_on),
+				'approved_by'	   => $approved_by['full_name'],
+				'approved_on'	   => date("j F Y h:i A",$approved_on),
+				'amount'		   => number_format($row->amount,2),
+				'status'		   => $row->status
+			];
+		}
+		$data['rfp'] = $rfp;
+		
+		$data['viewfile'] = 'manager/request_for_payment_approval/per_manager.php';
+		$this->load->view('gentlella_container.php',$data);
+	}
 }
 ?>
