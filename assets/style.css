@@ -1,0 +1,300 @@
+/*header*/
+.navbar-inverse {
+	/*  background-color: #339933;*/
+	border-color: #E7E7E7;
+	color:#FFFFFF;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #fff;
+}
+
+.jumbotron{ height:500px}
+/*.row{ margin-top:45px}*/
+.position-cell {
+	font-size:11px;
+}
+
+
+html, body {
+	height:100%;
+	font-size:12px;
+}
+.toast {
+	font-size:14px;
+}
+.bg {
+    background-image: url('../../../../../../assets/images/GEDC0382.JPG');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	height: 90%;
+	margin-top: -20px;
+}
+.is-loading {
+	background-color:#000000;
+	color:#555555;
+}
+.is-loading > div {
+	display:none;
+}
+.login-form{
+	float:none;
+	margin-top:20px;
+}
+.modal-content .loading-text {
+	padding:10px;
+}
+
+.under-navbar {
+	width:100%;
+	display: table;
+	margin-top:-20px;
+	margin-bottom:20px;
+	border-bottom:#CCCCCC thin solid;
+	height:55px;
+	padding:10px;
+}
+.table {
+	font-size:11px;
+	color: black;
+}
+.dashboard {
+	padding:20px 0px 20px 0px
+}
+#elfContibutionForm,#leaveForm,#leaveApplication, #overtimeForm,#nightDiffForm, #bonusForm,#undertimeForm, #loanForm, #loanPaymentForm, #frmEmployeeHistory { /* used in hr->employee profile and hr->employee form */
+	display: table;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 30%;
+	right: 30%;
+	width: 40%;
+}
+.employee-profile {
+	font-size:12px;
+}
+.employee-profile > .panel-heading {
+	font-size: 18px;
+}
+.employee-profile thead {
+	color:#FFFFFF;
+	background:#333333;
+}
+
+.cursor-pointer {
+	cursor:pointer;
+}
+
+.nopadding {
+	padding:0px;
+}
+
+/* the following 2 rules are needed to keep jqueryui autocompletes above bootstrap modals */
+.autocomplete {
+	z-index: 5000;
+}
+.ui-autocomplete {
+	z-index: 215000000 !important;
+}
+
+/* supplement bootstrap by allowing color in nav pills */
+.nav-tabs > .nav-danger > a {
+	color: #fff;
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
+.nav-tabs > .nav-warning > a {
+	color: #fff;
+	background-color: #f0ad4e;
+	border-color: #eea236;
+}
+.nav-tabs > .nav-info > a {
+	color: #fff;
+	background-color: #5bc0de;
+	border-color: #46b8da;
+}
+.nav-tabs > .nav-primary > a {
+	color: #fff;
+	background-color: #337ab7;
+	border-color: #2e6da4;
+}
+.nav-tabs > .nav-default > a {
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
+}
+.nav-tabs > .nav-success > a {
+	color: #fff;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+}
+.nav-tabs > .nav-danger:hover > a {
+	color: #fff;
+	background-color: #c9302c;
+	border-color: #ac2925;
+}
+.nav-tabs > .nav-warning:hover > a {
+	color: #fff;
+	background-color: #ec971f;
+	border-color: #d58512;
+}
+.nav-tabs > .nav-info:hover > a {
+	color: #fff;
+	background-color: #31b0d5;
+	border-color: #269abc;
+}
+.nav-tabs > .nav-primary:hover > a {
+	color: #fff;
+	background-color: #286090;
+	border-color: #204d74;
+}
+.nav-tabs > .nav-default:hover > a {
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #adadad;
+}
+.nav-tabs > .nav-success:hover > a {
+	color: #fff;
+	background-color: #449d44;
+	border-color: #398439;
+}
+.nav-tabs > .nav-danger:focus > a {
+	color: #fff;
+	background-color: #c9302c;
+	border-color: #761c19;
+}
+.nav-tabs > .nav-warning:focus > a {
+	color: #fff;
+	background-color: #ec971f;
+	border-color: #985f0d;
+}
+.nav-tabs > .nav-info:focus > a {
+	color: #fff;
+	background-color: #31b0d5;
+	border-color: #1b6d85;
+}
+.nav-tabs > .nav-primary:focus > a {
+	color: #fff;
+	background-color: #286090;
+	border-color: #122b40;
+}
+.nav-tabs > .nav-default:focus > a {
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #8c8c8c;
+}
+.nav-tabs > .nav-success:focus > a {
+	color: #fff;
+	background-color: #449d44;
+	border-color: #255625;
+}
+.nav-tabs > .nav-danger:active > a {
+	color: #fff;
+	background-color: #c9302c;
+	border-color: #ac2925;
+}
+.nav-tabs > .nav-warning:active > a {
+	color: #fff;
+	background-color: #ec971f;
+	border-color: #d58512;
+}
+.nav-tabs > .nav-info:active > a {
+	color: #fff;
+	background-color: #31b0d5;
+	border-color: #269abc;
+}
+.nav-tabs > .nav-primary:active > a {
+	color: #fff;
+	background-color: #286090;
+	border-color: #204d74;
+}
+.nav-tabs > .nav-default:active > a {
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #adadad;
+}
+.nav-tabs > .nav-success:active > a {
+	color: #fff;
+	background-color: #449d44;
+	border-color: #398439;
+}
+
+.canvassing-item {
+	height: 235px;
+	text-align:center;
+}
+
+.chatroom {
+	position: fixed;
+	bottom:0;
+	padding: 2px 2px 0px 2px;
+	right: 0;
+	margin-bottom:0px;
+	max-width:50%;
+}
+.chatroom #chat-body {
+	display:none;
+}
+.chatroom .panel-heading {
+	padding: 3px;
+	height: 20px;
+	cursor: pointer;
+	width: 100%;
+	display: block;
+}
+.chatroom .panel-body {
+	overflow-x: hidden;
+	overflow-y: auto;
+
+}
+.chat-input textarea {
+	width: 90%;
+}
+.chatbox {
+	text-align:left;
+	overflow:auto;
+	max-height: 300px;
+}
+.chatbox pre {
+	word-break: break-word;
+	overflow: auto;
+	white-space: normal;
+  hyphens: auto;
+}
+.blink_me {
+	animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+	90% { opacity: 0; }
+}
+.nav-sm .container.body .col-md-3.left_col {
+	z-index: 1;
+}
+/*
+.hidden{
+	display:none;
+}*/
+
+.ui-datepicker select.ui-datepicker-month{
+	color: #000;
+	}
+.ui-datepicker select.ui-datepicker-year{
+	color: #000;
+	}
+.is-loading {
+	/*
+	* Other loading icons! (Not sure about copyrights)
+	* Files are not downloaded because how do we even set the URL for these in local
+	* Cracked Sphere: https://i.redd.it/6xmxa11agua01.gif
+	* Computer: https://i.redd.it/m2ka5e0n9zhz.gif with background color #1B1B1B
+	* Wifi: https://i.imgur.com/hsNFpdD.gif
+	* Heiroglyphics: https://i.imgur.com/LLpE0G0.gif
+	* Reverse Fibonacci: https://i.redd.it/ikkx4voxebdz.gif
+	*/
+	background: #1B1B1B url('../../../../../../assets/images/m2ka5e0n9zhz.gif') no-repeat 50% 50%;
+}

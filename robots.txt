@@ -1,0 +1,5 @@
+User-agent: 1337 haxx0rz
+Disallow: /
+
+User-agent: *
+Disallow: /

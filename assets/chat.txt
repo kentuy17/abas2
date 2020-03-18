@@ -1,0 +1,7 @@
+﻿
+<pre>(4:48 PM 27 April 2017) <b>mmmaske</b>: test</pre><pre>(4:48 PM 27 April 2017) <b>mmmaske</b>: test test test</pre><pre>(4:06 PM 26 May 2017) <b>admin</b>: hehehe</pre><pre>(2:14 PM 5 June 2017) <b>mmmaske</b>: message</pre><pre>(2:00 PM 13 June 2017) <b>mmmaske</b>: &lt;img src='https://i.redd.it/46u6jl4psa3z.jpg'&gt; test</pre><pre>(2:41 PM 14 June 2017) <b>kbailingo</b>: </pre><pre>(11:01 AM 15 June 2017) <b>kbailingo</b>: </pre><pre>(1:18 PM 16 June 2017) <b>mmmaske</b>: krizzelle, blue nakabukas ba yung mastertables sainyo? pa add ako sa line 97 sa loob ng foreach</pre><pre>(1:18 PM 16 June 2017) <b>mmmaske</b>: if(!empty($vessels['company_id'])) {
+	$company						=		$this-&gt;Abas-&gt;getCompany($vessels['company_id']);
+	$data['rows'][$ctr]['company_name']	=	$company['name'];
+}</pre><pre>(1:24 PM 16 June 2017) <b>mmmaske</b>: sabihan nyo ko pag naadd nyo na or hindi nyo ginagamit</pre><pre>(2:54 PM 16 June 2017) <b>kbailingo</b>: hindi po ginagamit
+</pre><pre>(3:06 PM 16 June 2017) <b>mmmaske</b>: ok sige ako nalang</pre><pre>(8:35 PM 19 June 2017) <b>mmmaske</b>: changelog: 
+updated users table and login function to accommodate forced password resets, email the new user upon account creation and randomly generated passwords, updated PO to include estimated delivery date (for testing) as well as some UX changes (hide window until page is fully loaded for standard containers)</pre><pre>(11:32 AM 18 July 2017) <b>mmmaske</b>: test</pre><pre>(9:26 AM 21 July 2017) <b>mmmaske</b>: test</pre>

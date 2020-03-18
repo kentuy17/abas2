@@ -1,0 +1,98 @@
+﻿Procedural:
+	Meet/dialog regarding these recommendations
+	Implement a changelog
+	Code review
+	Avoid implementation of multiple modules at the same time
+	Password change time? Use password manager
+Database:
+	Rewite columns (use a naming convention!)
+	The word ‘number’ appears as ‘no’, ‘num’ and ‘number’
+	Columns containing foreign keys are inconsistently labeled (some with the word ‘id’ and some without)
+	Columns with the word ‘date’ - should the ‘date’ be before or after the identifying name? (ex. ‘effectivity_date’ VS ‘date_effective’)
+	Columns referring to location – should ‘from_location’ be used or ‘origin’? Should ‘to_location’ be used or ‘destination’?
+	Columns referring to a person – should ‘requested_by’ be used or ‘requisitioner’?
+	Drop unused tables
+	Separate table for entities (basic normalization)
+		banks table has bank account info (one-is-to-many problem)
+		inventory_location
+		inventory_location_name (an entire table just for name storage?)
+	Clean database
+		ac_vouchers duplicate column ('pay_to' and 'payee' mean the same thing?)
+		hr_employees dependents columns (dependents already moved to their own table)
+		billing table (amount_in_words needed? There is already a function to convert numbers to this. Also rename billing_date)
+		companies table (rename company_tin)
+		cranes table (column name spellcheck)
+		handling_schedules (rename qty – avoid abbreviations)
+		hr_elf_contribution (unused. Drop table?)
+		hr_overtime (remove ‘ot_’ in columns – it is understood that the content is for overtime)
+		hr_undertime (remove ‘ut_’ in columns – it is understood that the content is for undertime)
+		inventory_deliveries (rr? dr? po? Possibly move to separate table)
+		inventory_issuance_details (rename qty – avoid abbreviations)
+		inventory_items (unused columns? Rename qty – avoid abbreviations)
+		inventory_transfer_details (rename qty – avoid abbreviations)
+		inventory_unit (either make separate column for abbreviation or use full unit names in content. Possibly another column for type of unit? ex: volume, length, area, weight, etc)
+		ops_maintenance_activity (everything is in varchar!? Date is separate from time. Rename qty & fob – avoid abbreviations.)
+		ops_report_port_operation (table name? Rename qty – avoid abbreviations)
+		ops_report_vessel (rename qty – avoid abbreviations)
+		ops_report_vessel_fuel (table name? Ref?)
+		ops_report_vessel_maintenance (table name? Rename fob – avoid abbreviations)
+		ops_report_warehouse_operation (rename qty – avoid abbreviations)
+		ops_transaction_types (remove ‘transaction’ in ‘transaction_name’ column)
+		ops_wsr (ap? ar?)
+	Set correct datatype for columns
+		billing table, billing_date column
+		ops_maintenance_activity
+Application:
+	S T O P   U S I N G   I N L I N E   S T Y L E S (only acceptable on printables and other special cases)
+	Indentation
+	Use containers for similar looking modules (ex. ALL OF THEM)
+	Refactor PDF Container (move TCPDF requirement to view)
+	Choose PDF Renderer (pick the one that makes payslips, more memory-friendly)
+		TCPDF
+		FPDF
+	Naming convention
+		camelCase for models and functions not displayed in address bar
+		'printable_form' or 'form_printable' or 'form_print' or 'print_form' will be used?
+		no need to label views as 'view'
+	Use PDF for printables
+	Remove backup files from dev server
+		Separate directory for backups
+		Local workstation backups
+	Refactoring
+		Purchasing
+		Payroll
+	Choose one table framework!
+		Bootstrap Table
+		Data Tables
+	Functions in ABAS Model (still need to do comprehensive review of other models)
+		Standardize function output
+			Object is returned instead of array
+				Abas->getCompanies
+				Abas->getCompany
+				Abas->getUsers
+				Abas->getTaxCodes
+				Abas->getSalaryGrades
+				Abas->getVessels
+				Abas->getPorts
+				Abas->getDepartments
+				Abas->getDepartment
+				Abas->getPositions
+				Abas->getPosition
+				Abas->getVessel
+			Multilevel array output where single dimension is optimal
+				Abas->getServiceProvider
+				Abas->getTruck
+				Abas->getCrane
+				Abas->getPort
+				Abas->getRegion
+		Apply error trapping in cases of empty or nonexistent tables
+			Abas->getServiceProvider
+			Abas->getBank
+			Abas->getPorts
+			Abas->getRegions
+			Abas->getRegion
+		Apply camelcase (how could this be missed)
+			Abas->getServiceprovider
+			Abas->getServiceproviders
+		Refactor
+			Abas->getVessel

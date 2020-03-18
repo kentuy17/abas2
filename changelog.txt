@@ -1,0 +1,452 @@
+V.2.5.8
+(March 05, 2020)
+-Set the Accounting Clearing(Receivables,Collection,Issuance,Returns,Payroll)  Posting Dates to when was the transaction created and not when approved.
+-This was requested by the new Accounting  and Finance Managers for them to easily booked the entries on correct month/year.
+
+V.2.5.7
+(March 04, 2020)
+-Allow creation of Dry-dock Schedule even if the BOM is not yet approved
+-Added button to view the Gantt Chart in BOM 
+
+V.2.5.6
+(March 02, 2020)
+-Added updating of item price if the per lot price is zero
+
+V.2.5.5
+(February 24, 2020)
+-Added hardware integration of QR Code Printer and Scanner to the Inventory System
+-Fixed sql error in leave/ot approval
+-Display remaining bal in leave approval
+-Added request for new Abas Account in login home
+
+V.2.5.4
+(January 23, 2020)
+-Added Division, Group, Section, Sub-section on HRIS
+-Added Crew Movement Module and Reporting
+-Added HR Dashboard
+-Added filtering of Division, Group, etc. on Employee Summary Report
+
+V.2.5.3
+(January 8, 2020)
+-Added Accounting Entries Summary Report (For Auditing Purpose)
+-Change the Employee Status to show only Active and Inactive to differentiate with Employment Status on HRIS Employee Profile
+-Added 'setUnitPriceOfInventory' on Tools to set the inventory_quantity table unit price based on the updated price from inventory_item table
+
+V.2.5.2
+(January 4, 2020)
+-Fixed bug on 'setBrandsFromInventory' function not proceeding if the particulars string has special character like (' & ")
+-Added Brand name on Item description/particulars on various modules related to Purchasing and Inventory
+
+V.2.5.1
+(January 3, 2020)
+-Added auto-set of vessel and department codes in accounting entries for Receiving Report
+-Added tool to set the Brand names of Inventory Items and correct the particulars
+-Added a temporary-permission based transferring of quantity from one company to another for items that companies were not identified during the audit
+
+V.2.5.0 
+(December 22, 2019)
+-Added inventory per company
+-Only allow issuance of items if that company is the owner
+-Created new Receiving form and integrate the Notice of Discrepancy
+-Remove permission based access on Warehouse HR
+-Added View on Receiving Report
+-Auto-fill of items when Notice of Discrepancy is selected on the RR form and based on the NOD details
+-Added columns in inventory deliveries and inventory NOD tables
+-Receiving of quantity is now per company
+-Created a separate table for handling the inventory  per company and location
+-Allow user to view the item quantities per company and per location 
+-Made User location dynamic and added a table 'user_locations'
+-Added new listview and view for Issuances
+-Added new feature for quick QR Code scanning in the new Issuance module
+-Major improvement on the receiving and issuance of inventory
+-Updated on Item Unit conversion to integrate well with per company and location inventory
+-Removed some out-dated and unused files
+-Updated the permissions/access for Inventory
+-Fixed bug on Manager's PO Approval for viewing purchase history where it should display 'no record found' if similar purchases is not found
+-Change the UOM converter to select only items per company and location
+-Added UOM conversion history report
+-Corrected Item Purchase History report to show as per filtered company and vessel
+-Set the print QR Code to gentelella view
+-Added packaging submodule on Item details - for preparation of auto conversion during receiving and issuance
+-Set gentelella view on Asset manangement QR Code Tag
+-Added packaging and conversion equivalents  on inventory items
+-Added selection of types of packaging on Material Request on Purchasing
+-Added packaging conversion to smallest unit during item receiving
+-Added unit conversion to user-preferred packaging during item issuance
+-Overhauled the Receiving and Issuance modules to incorporate the FIFO or LIFO method
+-Overhauled  the item master-list to allow viewing per company and per location
+-Modified the Add Item to allow setting of multi-UOM or packaging per item with conversion
+-Modified the Notice of Discrepancy to accomodate changes in the Receiving
+-Modified the Purchasing requisition forms to accomodate the changes in the Inventory
+-Change query on the Purchase report to allow date filtering
+-Added Inventory Material Transfer Request and Stock Transfer receipt
+-Improve Barcode scanning for issuance and transfer
+-Corrected control numbering for requisitions, issuance, gatepass, and vessel work-order (asset management) by fixing the ABAS model getNextSerialNumber
+-Added company_id column for gatepass and inventory_requests tables to fix the control number
+-Item Form improvements eg. QR Code print
+-Added Material and Supplies Return Slip
+-Updated Inventory Audit to work on with the changes in the inventory
+-Some bug-fixes on Material Transfer and Item Form
+-Allow searching of items using both item codes and item name during requisition, receiving, issuance, transfer
+-Updated Stock Reports - Stock Card, Stock In/out Summary, Dead Stock Summary to reflect changes on quantity based on inventory per company
+-Added Monthly Inventory Report
+-Added location for Inventory Monthly Reports
+-Added new classification Over-delivery with freebies on Notice of Discrepancy
+-Adjusted Receiving Report with Notice of Discrepancy to add freebies but with no cost
+-Fixed bug on Item Form due to undeclared variable Brand
+-Added Stock Level based on Reorder Points in Stock Reports
+-Added JO on Inventory List Purchase Report
+-Some UI changes and improvements on Dashboard and Administrator menus
+-Created a separate controller System for Administrator functions
+-Transfer User Accounts Management in Administrator menus
+-Added Inventory Returns Clearing Module in Accounting subsystem
+
+V.2.4.3 (December 19, 2019)
+-Added divisions in hris (higher than department)
+-Added groups
+-Added sections which is under on specific departments
+
+V.2.4.2  (December 17,2019)
+-Added Trial Date on Schedule Logs
+
+V.2.4.1 (December 16,2019)
+-Fixed bugs in Budget Module and resolve conflict on bootbox link
+
+V.2.4.0 (December 10,2019)
+-Created Budget Module under Manager's tab. 
+-This includes the ff. "Generate Budget", "Budget Approval", "Company Budget" and "Summary Report"
+-Added new column Account Type on Chart of Accounts to be used in generating budget
+-Changed Accounting UI - Chart of Accounts
+-Allow editing of Loan Payments on payroll 
+-Added Payment ID on Loan Payments for tracking
+
+V.2.3.15 (December 9,2019)
+-Added Permission List on User Summary Report
+-Added version number on login page
+-Fixed issue on HR Employee Profile where Item name/description is not showing on Fixed Asset Register
+
+V.2.3.14 (November 24,2019)
+-Added 3rd-Party Vessel selection on Service Order creation
+-This is to enable hiring of vessel from outside company
+
+V.2.3.13 (November 21,2019)
+-Added new report on Inventory - Dead Stock Summary 
+-Changed the Check Voucher Approval Names for Makati
+
+V.2.3.12 (November 14,2019)
+-Added new column Balance on Inventory - Stock In/Out summary report for easy identification on 
+-Added new report on Operations - Out-turn Summary Aging Report
+-Fixed issue on Supplier Purchase History Report where the item description is only shown and not with particulars
+
+V.2.3.11 (November 4,2019)
+-Created work-around for receiving report to temporarily allow acceptance of similar items but  have different descriptions
+-This is for the transistion of the new items names which will now be used
+
+V.2.3.10 (October 30,2019)
+-Added Total Amount in the Inventory Issuance Clearing, For Posting, and Posted transactions
+-Add filtering before opening the Inventory Transaction History to improve loading performance
+-Added MSIS Amount on Issuance Transaction history
+-Added Audit report for Truck Repairs Maintenance in Tools controller
+
+V.2.3.9 (October 22,2019)
+-Change the number format of witholding-tax and taxable amount to 2 decimal places only in the UBP export file
+-Corrected query for filtering  the Purchase Order Report
+
+V.2.3.8 (October 15,2019)
+-Added Stock In-out Summary Report for monitoring the daily receiving and issuance of items.
+
+V.2.3.7 (October 11,2019)
+-Fixed bug that causes to have missing Bank Credit entry on  Non-PO Check Vouchers
+-Added a validation before submitting of CV if the COA id of bank is not null , this is might due to slow response/internet which affects the COA id assignment after selecting the bank
+
+V.2.3.6 (October 4,2019)
+-Added papersize option for printing the Check Voucher
+
+V.2.3.5 (October 3,2019)
+-Added lookup of related Check Voucher reference(eg. employee name) for Cash Advances Journal Vouchers
+-Updated permission access on Payroll reports for non-HR. eg Accounting
+
+V.2.3.4 (September 27,2019)
+-Fixed bug on subsidiary ledger not loading if the payee was not set in any of the account entries
+-Created Employee contribution summary in Payroll Reports 
+
+V.2.3.3 (September 26,2019)
+-Disabled the old APV and CV modules
+-Fixed issue on CV creation where if inbalance the notification should display a correct info
+-Show the Tax codes on APV printout
+-Allow editing of RFP by user if the status is still 'For Verification'
+-Added Tool to pickup items that has no Stock IN/OUT for verification purposes in inventory count
+
+V.2.3.2 (September 16,2019)
+-Added Summary of Stock-on-Hand per Company on Inventory Stock Card
+
+V.2.3.1 (September 14,2019)
+-Added checking of financial statemenst code if it is already exist in the chart's of account.
+-This is to prevent miscalculation in Statement of Income report.
+-Included in the Statement of Income report the new COA for revenues - Container Storage (FS 4149)
+
+V.2.3.0 (September 11,2019)
+-Created new module for APV Clearing with ATC selection
+-Created new table for ATC (wtax) list
+-Change the RFP to allow inputting of Payee - Employee(Contractual) even if it is not in HRIS. eg Truck drivers and helpers
+-Added export of CV to UB template (excel spreadsheet format) for uploading in their converter program
+-Change the Verified By name in DCCRR
+-Added new Multi-APV to CV module
+-Reconstructed the Payroll generation to improve processing speed by only calculating wtax for few employees
+-Added tool to add the CV ID reference to the APV table addCheckVoucherIDtoAPV(); This is used to be able to check if the APV is already created with CV
+-Change the approver name in SOA
+-Added item price on the Inventory list
+
+V.2.2.19 (August 16,2019)
+-Added Department field on Employee Info Edit form
+-Removed modal view on HR notifications when clicking the Employee name after a profile update
+-Changed the Collection-Payment Received On from Date type to Date-Time type input
+
+V.2.2.18 (August 14,2019)
+-Added Digital Stock Card in Inventory Report
+-Return the Stock Location in the Item Form
+
+V.2.2.17 (August 8,2019)
+-Fix error where if the project reference is not selected on Vessel Repairs Statistics Report
+-Fix error on payroll generation when computing the Tax Anualization (removed it for the 1st half since no tax is deducted and only on the 2nd half)
+- Created Inventory Audit Summary Report under Tools
+- Remove cancel button for RFP if it already cancelled
+-Hide the Daily Corporate Financial Summary Report until fixed issue on memory limit
+-Added Item ID on Inventory List
+-Do not show expenses on the Booked Vessel Expenses Report if the amount in the debit side is zero
+
+V.2.2.16 (July 26,2019)
+-Fixed bug on Asset Management Survey form not loading the step contents.
+-Added Requisition TS Code on JO and PO Report
+-Added Vessel Name on JO report
+-Fixed issue on GL and SL where particulars are blank for CV transactions
+-Adjusted Login page background to fit width 100%
+
+V.2.2.15 (July 24,2019)
+-Added Project Ref. No.  on Vessel Statistics Report filter so that it will automatically sets the 'Date From' and 'Date To' based on the dry-dock schedule
+-Add Cargo Description and Volume in the Voyage Report in Operations.
+
+V.2.2.14 (July 22,2019)
+-Added Payee Name on the Books of Account Report
+-As per operations, since Time Charter is billed in advance, then allow out-turn to be created late but add a field where they can add the advanced SOA as its reference
+-Added new columns in the Payroll Alphalist report to display all necessary data
+-Added Material and Services Requisitions Audit Report on the Tools controller
+-Changed the date the email will be sent for expiring certificates ahead of 2 months
+-Reverted restriction on SOA (Shipping or Time Charter) if Out-turn is not inputted, this is due to some SOA related to shipping has to be billed with reimbursement which has no actual Out-turn summary
+
+V.2.2.13 (July 21,2019)
+-Allow returning of Out-turn even if created with SOA as long as the SOA is still Draft
+-Made the Out-turn Summary Reference No. required on SOA(General) for vessel related services
+-Added assigned vessel on OS tab of the Contract View page
+-Made adjustments on the voyage report to correctly pickup the billing amount on a particular voyage (this was due to the Reference Out-turn No. was not tagged to the SOA) 
+
+V.2.2.12 (July 19,2019)
+-Changed PO and JO approval in Manager Dashboard to include the with-holding tax computation.
+-Added additional reference IDs for Service Order and Out-turn Listviews
+-Added additional pagination size on Accounts Receivables Listviews
+-Added on Fixed Asset Register an option to include the asset to lapsing schedule or not.
+-Only allow Fixed Asset Register tagged with include_lapsing to Lapsing Schedule computation.
+
+V.2.2.11 (July 18,2019)
+-Allow adding of item on Fixed Asset Register even if it not recorded in the inventory items
+-Added adding of additional or new fixed assets on lapsing schedule
+-Added BOM reference on the Maintenance Schedule Logs -> Project orders
+
+V.2.2.10 (July 16,2019)
+-Fixed Asset Expenses Report to include input tax so that to match the amount on Vessel Expense Statistics
+
+V.2.2.9 (July 12,2019)
+-Added Voyage per BOL Report in Operations System
+-Allow edit of item name during unit conversion in Inventory System
+-Renamed the module function from job_order_expense_summary to vessel_repairs_statistics
+-Added Variance computation on the Vessel Repairs Statistics
+-Separated Dry-dock labor cost on Bill of Materials as requested by President using regex
+-Fixed bug where vessel name is not being displayed on email notification for expiring certificates
+-Added cancellation of RFP by accounting so that users no longer go to IT for correction if the status is already for voucher
+-Fixed issue on HRIS Work history where company automatically changed if the office/vessel was changed [ made a separate editing of company esp if the employee should be on ABISC(Staff) ]
+-Change Login background image
+-Added selectable companies for Makati Office during requisition
+-Rearranged Subsystem buttons in the homepage
+-Some minor UI changes 
+
+V.2.2.8 (July 10,2019)
+-Excluded from the Warehouse Issuances the items that are already in the PO and include only those items that were issued to that vessel without PO on Vessel Repairs Expense Report
+-Adjusted the Graphs to reflect correct values on Vessel Repairs Expense Report
+-Changed the Vessel Repairs Statistics Report based on item categorization of PO and Issuance items 
+-Included Warehouse Issuances to the Grand Total on Vessel Repairs Expense Report
+-Excluded Dry-docking Estimates from the computation on Vessel Repairs Expense Report
+
+V.2.2.7 (July 6,2019)
+-Added Dry-docking breakdown on Vessel Repairs Statistics Report
+-Corrected Vessel Repairs Statistics Report to pick-up correct sandblasting job description
+-Corrected issue on Vessel Profile not able to view the Operational Expenses(RFP) due to the vessel id is no longer used as reference
+
+V.2.2.6 (July 5,2019)
+-Updated UI for the Job Order Expense Summary 
+-Rename the Job Order Expense Summary to Vessel Repairs Statistics
+-Added Charts for better analysis of data in Vessel Repairs Statistics
+-Added detail viewing of related JO/PO/Issuance per category on Vessel Repairs Statistics
+
+V.2.2.5 (June 28,2019)
+-Added additional Afloat Repair breakdown in the JO Expense Summary
+-Added Cosumables like Fuel, Paints, Oil, Water as part of the JO Expense Summary computation
+
+V.2.2.4 (June 24,2019)
+-Added Job Order Expense Summary Report in Manager's Dashboard
+-Corrected Statement of Income Report to mapped the Income Tax Expense
+
+V.2.2.3 (June 3,2019)
+-Added digital signatures on the ff:
+-Material/Services Procurement Request Form
+-Request for Payment
+-Canvass Report
+-Service Order
+-Out-turn Summary
+-Accountability Form
+-Disposal Form
+-Notice Of Discrepancy
+-Vessel Work Order
+-Truck Maintenance Report Form
+-Vessel and Truck Survey Form
+-BOM
+
+V.2.2.2 (May 24,2019)
+-Added new employment status 'Separated' for employee that is no longer connected to the company and has no remarks on Employee Work History sub-module
+-Lower size of font/text on all Payroll Reports
+-Made the RFP Wtax Editable
+-Added Contract Reference on the Supplier selection on RFP module
+
+V.2.2.1 (May 16,2019)
+-Fixed Assets, Accountability, Disposal not working due to case sensitivity of controller name (Asset_Manangement)
+-Fixed Inventory Conversion to check also the particulars before converting so not to add to the similar item name
+-Fixed Purchasing Item limit during item search in Material Requisition
+-Fixed Finance not functiong due to incorrect HR model loaded
+-Transferred Company manuals to assets download folder
+-Removed restriction of company manuals so that anyone can view
+-Transferred IRAAF to downloads folder
+
+V.2.2.0 (May 3,2019)
+-Added option on Inventory Item whether to identify it as CAPEX or not
+-Added uploading of image of Inventory Item
+-Added Fixed Asset Register with Asset Tagging in Asset Management
+-Added Accountability Forms with Manager's Approval in Asset Management
+-Added Disposal Slip with Manager's Approval in Asset Management
+-Added Fixed Asset - Lapsing Schedule in Accounting
+-Added list of employee's assigned assets in HRIS
+-Change permissions on finance subsystem to make it comprehensive eg. 'add_payment' instead of 'collection'
+-Removed auto assigned ELF rate on newly registered employee in HRIS
+-Added Check Clearing with attachments in Finance
+-Added Released Checks Report in Finance
+-Added Purchase History of items on PO Approval in Manager's Dashboard
+-Edited PO report to reflect if it is paid or unpaid based on status of CV
+-Added file attachment during PO and JO creation (to be used for verifying in Manager's Approval)
+-Added Project Reference No. on  Dry-dock and Motorpool Schedule logs so that it can be used on the requisition form
+-Added selection of Truck plate no. on requisition form if it is for Avega Trucking
+-Added PO/JO Status report basd on Project Reference No. in Schedule logs
+
+V.2.1.7 (April 27,2019)
+-Removed unnecessary files in Asset folder
+-Fixed bug in payroll where employee with status 'casual' and 'fixed-term' is not included
+-Fixed bug on PO/JO approval on Manager's Dashboard where item unit price from inventory is being displayed instead of PO/JO price
+-Disabled force logouts for Administrator accounts
+-Added file attacment on RFP
+
+V.2.1.6 (April 7,2019)
+-Added Company Manuals (per Department access)
+-Fixed Date Display (Incorrect Day) in the top menu
+-Updated editing/adjusting of RFP with W-tax to include auto-computation
+-Added Cancellation of RFP for users as long as the status is still 'For Verification'
+-Fixed issue on Reference No. cannot be find for PO of RFP
+-Fixed issue on RFP print if 'Charge To' is not set
+-Added 'Prepared By' and 'Verified By' on Manager's RFP Approval Form
+-Fixed Out-turn summary to allow Administrators to approve regardless of location
+-Allow users to attach image of their signature (to be used for digital approvals of documents)
+
+V.2.1.5 (March 26,2019)
+-Added uploading/attaching of scanned files in Request for Payment module
+-Fixed issue on attaching files on RFP module (DB error when nothing is attached)
+-Fixed issue on Reference No. cannot be find for PO of RFP
+-Allow accounting to edit the RFP amount after it was approved or status is 'For voucher' this is to adjust for witholding tax
+-Disabled force logout for Administrator accounts
+
+V.2.1.4 (March 20,2019)
+-Added functionality for editing Accounting Transaction to correct non-balance entries (permission based)
+-Corrected missing or uninitialized variables that causes errors when generating data in every pages
+-Added filtering first on Accounting Summary Reports ( OR, AR)
+-Corrected Inventory Item Form -  Particular field not displaying the whole data
+-Some minor UI fixes
+
+V.2.1.3 (March 18,2019)
+-Change Manager UI for Canvass Approval
+-Separated Manager's Dashboard functions from Admin to new Manager Controller and Model
+-Added mapping of Forex as Other expenses on the Statement of Income and Statement of Financial Position in Accounting
+-Corrected issues on some PDF print-outs not loading due to error
+-Change signatory on Check Voucher print-outs
+-Added Vessel Expenses Report (Dry-docking, Emergenct Repair, Operational)
+
+V.2.1.2 (March 13,2019)
+-Change Manager UI for Purchase Order Approval
+-Change Manager  UI for Job Order Approval
+-Change signatory on SOA and DCCRR printouts
+
+V.2.1.1 (March 12,2019)
+-Converted HTML tabs to AJAX tabs
+-Added new item cancellation on Purchase Request Approval
+-Change UI of Canvass Approval
+
+V.2.1.0 (March 11,2019)
+-Updated Request For Payment UI in Accounting
+-Added RFP as Corporate Services
+-RFP now requires approval based on the company manual's approval matrix
+-Added RFP approval in Manager's Dashboard
+-Updated user permission on Manager's module
+-Change Login form UI
+
+V.2.0.5 (March 7,2019)
+-Some minor UI changes on employee profile
+-Added session timer for checking user idle time (system will auto log-off after 30 minutes of inactivity)
+-Added function to prevent creation of 2nd-half payroll if the month's 1st-half is not yet created
+-Corrected Bank Remittance Report  since rest day OT was not computed
+
+V.2.0.4 (March 9,2019)
+-Corrected bank remittance report net pay computation
+-Hide ELF Loan application
+-Corrected netpay on employee payroll list
+
+V.2.0.3 (March 8,2019)
+-Added edit button on payroll summary/list
+-Corrected the form of Inventory Item where quantity being set to zero if the price was updated
+
+V.2.0.2 (March 7,2019)
+-Fixed incorrect with-holding tax computation
+
+V.2.0.1 (March 7,2019)
+-Fixed incorrect overtime computation
+
+V.2.0.0 (February 7,2019)
+-Major UI improvement
+-Added Time in company in Employee Profile
+-Changed 'Value changed' - Employee Status to Employment Status, Vessel to Assigned To
+-Added 'Value changed' - Company (if Assigned To vessel was not on the same company), Department (if position was not same department)
+-Corrected Payroll ID and its detail ID not matching when one record was deleted and created a new one
+-Added checking/notification of Employees whose on-leave for updating to AWOL status
+-Added summary of employees for nearing AWOL status
+-Annualization of Leave (HR can now set one annual credits to the system and do the monitoring including the remaining leave and unused credits
+-Made the employee dependents entry fields dynamic so not to restrict to 4 records only
+-Changed HRIS and Payroll UI so that there will be uniformity
+-Added submodule for Night Differential on HRIS and include it on Payroll computation
+-Changed Payroll Locking to Approval method eg. HR manager should approve now the Payroll
+-Added control number on Payroll
+-Improved the Payroll summary printout
+-Added toggle to view password on login page
+-Improved Account Details/Change Password editing form
+-Added Bonus/13month Pay recording and report in HRIS
+-Added system icon
+-Added changelog
+-Separated Bonus and Others in payroll computation
+-Added different types of holiday OT on HRIS
+-Added breakdown of holiday OTs in the payroll (Rest Day, Special Holiday, Special Holiday+Rest Day, Legal Holiday, Legal Holiday+Rest Day)
+-Corrected computation of Holiday OTs based on the new holiday premium computation
+-Added no. of leave credits on employee summary report
+-Reactivated the login time-out that checks if user is inactive for 20minutes it will automatically log-out
+-Change the notification retention time to 1 minute

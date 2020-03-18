@@ -1,0 +1,146 @@
+<?php	
+
+$preparor = $this->Abas->getUser($APV[0]['created_by']);
+$prepared_by	=	"<center><u>".strtoupper($preparor['full_name'])."</u><br><i>Accounting Staff</i></center>";
+$checked_by	=	"<center>_______________________________<br><i>Accounting Analyst/Officer</i></center>";
+$approved_by	=	"<center>_______________________________<br><i>Accounting Manager</i></center>";
+
+$page =  '
+			<style type="text/css">
+				 h1 { font-size:220%;text-align:center; }
+				 h2 { font-size:170%;text-align:center; }	
+				 h3 { font-size:120%;text-align:center; }
+				 h5 { border-bottom: double 3px; }
+				 td { font-size:150%;}
+				 th { background-color:#5d5d5d;color:#FFFFFF;font-weight:bold;font-size:150%;text-align:center;vertical-align:center}
+				  p { text-align:left;font-size:150%; }
+				.bt { font-size:150%; font-weight:bold; text-align:left}
+				.btg { font-size:150%; text-decoration: underline; text-align:left}
+				.btx { font-weight:bold; text-align:right; font-size:190%}
+				.tg {border-collapse:collapse;border-spacing:0;}
+				.tg td{font-family:Arial, sans-serif;font-size:12px;padding:5px 5px;overflow:hidden;word-break:normal;}
+				.tg th{font-family:Arial, sans-serif;font-size:12px;font-weight:normal;padding:10px 5px;overflow:hidden;word-break:normal;}
+				.tg .tg-yw4l{vertical-align:top}
+				.tg .tg-9hbo{font-weight:bold;vertical-align:top;horizontal-align:left}
+				.underline {text-decoration:underline;border-bottom: 2px;font-weight:bold}
+				.doubleUnderline {text-decoration:underline;text-decoration-style:double;}
+				.bot {vertical-align:bottom;}
+			</style>
+			<br>
+		    <div>
+				<table>
+					<tr>
+						<td><img src="'. PDF_LINK .'assets/images/AvegaLogo.jpg" alt="Avega_Logo"></td>
+						<td colspan="4">
+							<h1 style="font-size:140%; text-align:left">'. $company->name .'</h1>
+			    			<h3 style="font-size:110%;text-align:left">'. $company->address.'</h3>
+			    			<h3 style="font-size:110%; text-align:left">'. $company->telephone_no.'</h3>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+
+			<div>
+				<table border="0" cellspacing="1" cellpadding="1">
+					<tr>
+						<td colspan="9" class="btx">APV No.</td>
+						<td colspan="1" class="btx" align="left">'.$APV[0]['control_number'].'</td>
+					</tr>
+					<tr>
+						<td colspan="10"><h2>ACCOUNTS PAYABLE VOUCHER<br></h2></td>
+					</tr>
+				</table>
+			</div>
+
+			<div>
+				<table border="0" cellpadding="3" width="100%">
+					<tr>
+						<td class="bt">Payee:</td>
+						<td class="btg" colspan="5">'.$supplier['name'].'</td>
+						<td class="bt" style="text-align:right">Date:</td>
+						<td class="btg" >'.date('F j, Y',strtotime($APV[0]['date_created'])).'</td>
+					</tr>
+	            	<tr>
+	            		<td class="bt">RR No.</td>
+	            		<td class="btg" colspan="5">'.$RR[0]['control_number']." (TSCode No. ".$RR[0]['id'].')</td>
+	            	</tr>
+	            	<tr>
+	            		<td class="bt">PO No.</td>
+	            		<td class="btg" colspan="5">'.$PO['control_number']." (TSCode No. ".$PO['id'].')</td>
+	            	</tr>
+	            	<tr>
+	            		<td class="bt">Invoice No.</td>
+	            		<td class="btg" colspan="5">'.$APV[0]['invoice_no'].'</td>
+	            	</tr>
+				</table>
+				<br><br><br><br>
+				<table border="1" cellpadding="8" width="100%">
+					<thead>
+						<tr>
+						<th>Account Code</th>
+						<th>Account Name</th>
+						<th>Debit</th>
+						<th>Credit</th>
+						</tr>
+					</thead>
+					<tbody>';
+
+					$total_debit = 0;
+					$total_credit = 0;
+					foreach($APV_entries as $entries){
+						$account = $this->Accounting_model->getAccount($entries['coa_id']);
+							$page .= '<tr>';
+								$page .= '<td style="text-align:center">'.$account['code'].'</td>';
+								$page .= '<td>'.$account['name'].'</td>';
+								$page .= '<td style="text-align:right">'.number_format($entries['debit_amount'],2,'.',',').'</td>';
+								$page .= '<td style="text-align:right">'.number_format($entries['credit_amount'],2,'.',',').'</td>';
+							$page .= '</tr>';
+							$total_debit = $total_debit + $entries['debit_amount'];
+							$total_credit = $total_credit + $entries['credit_amount'];
+					}
+			  $page .=  '<tr>
+							<td colspan="2" style="text-align:right">Total</td>
+							<td style="text-align:right"><b>'.number_format($total_debit,2,'.',',').'</b></td>
+							<td style="text-align:right"><b>'.number_format($total_credit,2,'.',',').'</b></td>
+						</tr>
+						</tbody>
+				</table>';
+
+			  if(!empty($apv_wtax)){
+			  		$page .=  '<div>
+							<h2 style="text-align:left">Tax Code(s):</h2>';
+								foreach($apv_wtax as $tax){
+									$page .= $tax['atc']." - ".$tax['atc_description']."<br>";
+								}
+			  		 $page .=  '</div>';
+			  }
+					
+		   $page .='</div>
+			<br>
+			<div>
+				<table border="0" cellpadding="8" width="100%">
+					
+					<tr>
+						<td><b>Prepared By:</b> </td>
+						<td><b>Checked By:</b> </td>
+						<td><b>Approved By:</b> </td>
+					</tr>
+					<tr align="center">
+						<td style="font-size:12px"><br><br><br><br><br>'.$prepared_by.'</td>
+						<td style="font-size:12px"><br><br><br><br><br>'.$checked_by.'</td>
+						<td style="font-size:12px"><br><br><br><br><br>'.$approved_by.'</td>
+					</tr>
+				</table>
+			</div>';
+	       
+
+$data['orientation']	=	"P";
+$data['pagetype']		=	"letter";
+$data['title']			=	"Accounts Payable Voucher - Control No." . $APV[0]['control_number'];
+$data['control_number']	=	"Transaction Code: " .$APV[0]['id'];
+$data['content']		=	$page;
+
+$this->load->view('pdf-container.php',$data);
+
+?>
